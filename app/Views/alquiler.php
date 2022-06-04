@@ -6,7 +6,8 @@
     $generosAlquileres = new GenerosAlquilerModel();
     $generos = new GenerosModel();
     $plataformas = new PlataformaModel();
-    $mensaje = 'Saludos, solicito alquilar la cuenta con todos los juegos.';
+    $mensajeAlquiler = 'Saludos, solicito alquilar la cuenta Play Station.';
+    $mensajeCompra = 'Saludos, solicito comprar la cuenta Play Station por porcentajes.';
     $mensaje = str_replace(' ', '%20', $mensaje);
 ?>
 <?= $this->extend('plantilla/index') ?>
@@ -17,13 +18,15 @@
 
 <?= $this->section('contenido') ?>
     <h3 class="nk-decorated-h-2">
-        <span><span class="text-main-1">Juegos valorados por</span> Bs. <?=$total?></span>
+        <span><span class="text-main-1">Juegos valorados por</span> <?=$total?> Bs.</span>
     </h3>
     <h4 class="text-white">
-        Para solicitar el alquiler de la cuenta por
-        <span class="text-main-1">100 Bs/mes</span>
-        con todos los juegos mostrados haz clic
-        <a href="https://api.whatsapp.com/send?phone=59173354006&text=<?=$mensaje?>">aquí</a>.
+        Para solicitar el alquiler de la cuenta a <span class="text-main-1">50 Bs/mes</span>
+        haz clic <a href="https://api.whatsapp.com/send?phone=59173354006&text=<?=$mensajeAlquiler?>">aquí</a>.
+    </h4>
+    <h4 class="text-white">
+        Para comprar la cuenta por porcentajes de 40% (para siempre) a <span class="text-main-1"><?=$total*0.4?> Bs.</span>
+        haz clic <a href="https://api.whatsapp.com/send?phone=59173354006&text=<?=$mensajeCompra?>">aquí</a>.
     </h4>
     <div class="nk-blog-grid">
         <div class="row">
@@ -52,6 +55,7 @@
                         <div class="nk-gap"></div>
                         <a href="<?=$enlace?>"
                             class="nk-btn nk-btn-rounded nk-btn-color-dark-3 nk-btn-hover-color-main-1">Leer Más</a>
+                        <div class="nk-post-date float-right"><?=$alquiler['Precio']?> Bs.</div>
                     </div>
                 </div>
             <?php } ?>

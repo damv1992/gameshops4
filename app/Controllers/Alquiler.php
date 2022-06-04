@@ -132,10 +132,6 @@ class Alquiler extends Home {
 				$contador++; $campos .= 'imagenProducto,';
 				$mensajes .= 'Este campo es obligatorio,';
 			}
-			if (!$precio) {
-				$contador++; $campos .= 'precioProducto,';
-				$mensajes .= 'Este campo es obligatorio,';
-			}
 			if (!$plataforma) {
 				$contador++; $campos .= 'plataformaProducto,';
 				$mensajes .= 'Debe elegir la plataforma,';
@@ -175,6 +171,7 @@ class Alquiler extends Home {
 				])->update();
 			} else {
 				$id = $this->generarId();
+				$precio *= 6.97;
 				$this->productos->insert([
 					'CodigoProducto' => $id,
 					'NombreProducto' => $producto,
