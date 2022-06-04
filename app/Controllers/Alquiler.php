@@ -158,7 +158,9 @@ class Alquiler extends Home {
 			$precio = $this->request->getPost('precio');
 			$plataforma = $this->request->getPost('plataforma');
 			$tipo = $this->request->getPost('tipo');
+			$propio = $this->productos->where('CodigoProducto', $id)->first();
 			if ($id) {
+				if ($propio['Precio'] <> $precio) $precio *= 6.97;
 				$this->productos->where([
 					'CodigoProducto' => $id
 				])->set([
